@@ -32,9 +32,9 @@ module.exports = {
 
         ]
     },
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin()
-    ]
+    // plugins: [
+    //     new webpack.optimize.UglifyJsPlugin()
+    // ]
     /*
     *  使用uglifyjsp时出现问题，它将我的变量替换了， 和删除， test出现问题
     * */
