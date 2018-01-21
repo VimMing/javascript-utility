@@ -1,0 +1,46 @@
+{
+  "name": "vim_utility",
+  "version": "1.0.0",
+  "description": "helper function for javascript",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "karma start script/karma.conf.js",
+    "wp": "webpack --config ./script/webpack.config.js",
+    "build": "node script/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VimMing/javascript-utility.git"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "chalk": "^2.3.0",
+    "copy": "^0.3.1",
+    "coveralls": "^3.0.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-power-assert": "^1.0.0",
+    "mocha": "^4.0.1",
+    "ora": "^1.3.0",
+    "power-assert": "^1.4.4",
+    "rimraf": "^2.6.2",
+    "source-map-loader": "^0.2.3",
+    "webpack": "^3.8.1"
+  },
+  "keywords": [
+    "helper",
+    "function",
+    "utility"
+  ],
+  "author": "VimMing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VimMing/javascript-utility/issues"
+  },
+  "homepage": "https://github.com/VimMing/javascript-utility#readme"
+}
