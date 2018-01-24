@@ -22,4 +22,5 @@ deploy:
   on:
     tags: true
     repo: VimMing/javascript-utility
+    all_branches: true
   tag: next
