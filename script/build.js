@@ -13,7 +13,7 @@ new Promise((resolve, reject) => {
     let building = ora('building...');
     building.start();
     // 删除旧的包
-    rm(path.resolve(rootPath, 'dist', `index.js`), err => {
+    rm(path.resolve(rootPath, 'dist', `*`), err => {
         if (err) throw (err);
         webpack(config, function (err, stats) {
             if (err) throw (err);

@@ -26,18 +26,19 @@ module.exports = function (config) {
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {},
-
+        preprocessors: {
+            'dist/index.js': 'coverage'
+        },
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress', 'mocha'],
+        reporters: ['mocha',  'coverage'],
 
         // reporter options
         mochaReporter: {
             colors: {
-                success: 'blue',
+                success: '#B8E986',
                 info: 'bgGreen',
                 warning: 'cyan',
                 error: 'bgRed'
@@ -49,7 +50,13 @@ module.exports = function (config) {
                 error: 'x'
             }
         },
-
+        // optionally, configure the reporter
+        coverageReporter: {
+            type: 'lcov',
+            dir: 'coverage/',
+            subdir: '.'
+            // Would output the results into: .'/coverage/'
+        },
 
         // web server port
         port: 9876,

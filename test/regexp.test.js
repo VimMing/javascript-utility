@@ -11,7 +11,7 @@ describe('Regexp API:' , function () {
         });
     });
 
-    describe('isEmail()', function () {
+    describe('#isEmail()', function () {
         it('isEmail("vimmingshe@gmail.com") should return true', function () {
             assert(vim_utility.isEmail("vimmingshe@gmail.com"));
         });
@@ -24,7 +24,7 @@ describe('Regexp API:' , function () {
         });
     });
 
-    describe('isPhone()', function () {
+    describe('#isPhone()', function () {
         it('isPhone("15116103402") should return true', function () {
             assert(vim_utility.isPhone("15116103402"));
         });
@@ -56,5 +56,17 @@ describe('Regexp API:' , function () {
         });
     });
 
+    describe('#getUrlParam()', function () {
+        it('vim_utility.getUrlParam("https://www.baidu.com/s?wd=www.slane.cn&rsv_spt=1") should return true ', function () {
+            let arr = [];
+            arr["wd"] = "www.slane.cn";
+            arr["rsv_spt"] = "1";
+            let m = vim_utility.getUrlParam("https://www.baidu.com/s?wd=www.slane.cn&rsv_spt=1");
+            assert.equal(m.size , 2);
+            for(let [key, value] of arr.entries()){
+                assert(m.get(key) === value);
+            }
+        });
+    });
 
 });
