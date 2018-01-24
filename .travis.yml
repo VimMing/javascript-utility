@@ -17,7 +17,7 @@ deploy:
   api_key:
     secure: ncgwF1xvbZsitUseInwgJV4KjWnowN6dS7V9A+bMRZYwkKI+txcgmTxwbRilZAFB4qcUIK9Bl5RJIi9AeGd+qQOr1C9IVvD2xe2dFR+z+I9kiPrOCrnUhl+kasfrNciCrx3pr1dNCu3ISHo49bLk56IwAVsEDgWYvapZEYJPeDOkaHBa7bQGOj+t2sTY4IokWjq9MQ4KtMFSFaV6638sQwKrFsfxxQ5yGoa7ln9nrcfC1QN8DN1ryp+g7aP6z8pk+kqUZxHY26Dx9IAtKYyZ3yvf34bu9wzeuQkkuYOa86Z0h+80NxVbXxfw1e0U9ZGDL+eNCUXpnc928OcIispyU2N1eXc904ArfhqbvETLG9sLeI7rIUnzs1v1WUehGltMH6KiHe3Q+XnUViLqx2HlZeotHI/s6Cb88zNLrdPiNu2orSi2nxjU7PRh9zr+2h/2Oal34o123kqKwrvge3qcpLSnRuNip1zOQ6tIMPCouw2EFOqzztdyunPmDDVngNkcsbUb9i6U57BmZlnnYewHCxes5L2aP/N4pYZ3aR1XPHoNo+HfgqFaOZiVr4wXzMoZwZxjIbQMenuUxCHMi1PMbQdQ1f82wbGt95+aiEaU4LB6u1QZ2IteUuYbQBINhApY3iHlErRHVDXQw7IlfydDKrTon3SWeVtk9CTvWeteovQ=
   on:
-    tags: true
+    tags: false
     repo: VimMing/javascript-utility
     all_branches: true
   tag: next
