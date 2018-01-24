@@ -11,9 +11,6 @@ script:
 after_success:
 - cat ./coverage/lcov.info | node_modules/.bin/coveralls --verbose
 - rm -rf ./coverage
-branches:
-  only:
-  - master
 deploy:
   provider: npm
   email: vimmingshe@gmail.com
