@@ -6,7 +6,6 @@ before_install:
 install:
 - npm install
 script:
-- npm run build
 - npm run test
 after_success:
 - cat ./coverage/lcov.info | node_modules/.bin/coveralls --verbose
