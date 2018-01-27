@@ -267,8 +267,76 @@ describe('Dom API:', function () {
         });
     });
 
+    describe('#addClass()', function () {
+        let $ele = null
+        before(function () {
+            let div = document.createElement('div')
+            div.id = 'J_addClass'
+            document.body.appendChild(div)
+            $ele = document.querySelector('#J_addClass')
+        })
+        it(`vim_utility.addClass($ele, 'test') should return true`, function () {
+            vim_utility.addClass($ele, 'test')
+            assert(vim_utility.hasClass($ele, 'test'))
+        });
+        after(function () {
+            document.body.removeChild($ele)
+        })
+    });
 
+    describe('#hasClass()', function () {
+        let $ele = null
+        before(function () {
+            let div = document.createElement('div')
+            div.id = 'J_hasClass'
+            document.body.appendChild(div)
+            $ele = document.querySelector('#J_hasClass')
+            vim_utility.addClass($ele, 'test')
+        })
+        it(`vim_utility.hasClass($ele, 'test') should return true`, function () {
+            assert(vim_utility.hasClass($ele, 'test'))
+        });
+        after(function () {
+            document.body.removeChild($ele)
+        })
+    });
 
-    
+    describe('#removeClass()', function () {
+        let $ele = null
+        before(function () {
+            let div = document.createElement('div')
+            div.id = 'J_removeClass'
+            document.body.appendChild(div)
+            $ele = document.querySelector('#J_removeClass')
+            vim_utility.addClass($ele, 'test')
+        })
+        it(`vim_utility.removeClass($ele, 'test') should return false`, function () {
+            vim_utility.removeClass($ele, 'test')
+            assert.notEqual(vim_utility.hasClass($ele, 'test'))
+        });
+        after(function () {
+            document.body.removeChild($ele)
+        })
+    });
+
+    describe('#toggleClass()', function () {
+        let $ele = null;
+        before(function () {
+            let div = document.createElement('div');
+            div.id = 'J_removeClass';
+            document.body.appendChild(div);
+            $ele = document.querySelector('#J_removeClass');
+            vim_utility.addClass($ele, 'test');
+        });
+        it(`vim_utility.removeClass($ele, 'test') should return false`, function () {
+            vim_utility.toggleClass($ele, 'test');
+            assert.notEqual(vim_utility.hasClass($ele, 'test'));
+            vim_utility.toggleClass($ele, 'test');
+            assert(vim_utility.hasClass($ele, 'test'));
+        });
+        after(function () {
+            document.body.removeChild($ele)
+        })
+    });
 
 });

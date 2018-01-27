@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+        .test{
+            z-index: 1;
+            position: relative;
+        }
+        .test >li:first-child{
+            z-index: 2;
+        }
+        .test> li:nth-child(2){
+            z-index: 3;
+        }
+        .test > li:nth-child(3){
+            z-index: 4;
+        }
+    </style>
+</head>
+<body>
+<ul class="test">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+<ul>
+    <li style="position: relative; z-index: 1000">2134</li>
+    <li>231</li>
+    <li>1234</li>
+</ul>
+
+<script src="../dist/index.js"></script>
+</body>
+</html>

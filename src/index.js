@@ -18,6 +18,19 @@ const  prevNode = require('./dom/prevNode');
 const  scrollTo = require('./dom/scrollTo');
 const  setScrollTop = require('./dom/setScrollTop');
 const  offset = require('./dom/offset');
+const  css = require('./dom/css');
+const getMaxZIndex = require('./dom/getMaxZIndex');
+
+const hasClass= require('./dom/hasClass');
+const addClass= require('./dom/addClass');
+const removeClass= require('./dom/removeClass');
+const toggleClass= require('./dom/toggleClass');
+
+
+const  getCookie = require('./cookie/getCookie');
+const  setCookie = require('./cookie/setCookie');
+const  removeCookie = require('./cookie/removeCookie');
+
 
 
 module.exports = {
@@ -26,9 +39,10 @@ module.exports = {
     // regexp
     isChinaIDCard, isEmail, isPhone, isUrl, getUrlParam,
     // dom
-    closestNode, elementFromPoint, getCaretPosition, getScrollLeft, getScrollTop, nextNode, parentNode, prevNode, scrollTo, setScrollTop, offset,
-
-
-
+    css, getMaxZIndex, closestNode, elementFromPoint, getCaretPosition, getScrollLeft, getScrollTop, nextNode, parentNode, prevNode, scrollTo, setScrollTop, offset,
+    // dom class
+    hasClass, removeClass, addClass, toggleClass,
+    // cookie
+    getCookie, setCookie, removeCookie,
 
 };
