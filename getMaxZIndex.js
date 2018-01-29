@@ -1,7 +1,7 @@
 const css = require('./css');
 
 /**
- * get max z-index in the element 's children
+ * get max z-index value in the given element 's children by the default ele == document.body
  * @return {number}
  */
 

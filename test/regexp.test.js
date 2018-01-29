@@ -69,4 +69,19 @@ describe('Regexp API:' , function () {
         });
     });
 
+
+    describe('#getExplore()', function () {
+        it(`vim_utility.getExplore() should return "Chrome"`, function () {
+            console.log(`Explore:${vim_utility.getExplore()}`);
+            assert(/^Chrome:/.test(vim_utility.getExplore()));
+        });
+    });
+
+    describe('#getOS()', function () {
+        it(`vim_utility.getOS() should return OS`, function () {
+            console.log(`OS:${vim_utility.getOS()}`);
+            assert(vim_utility.getOS() === 'windows' || vim_utility.getOS() === 'MacOSX' || vim_utility.getOS() === 'linux')
+        });
+    });
+
 });

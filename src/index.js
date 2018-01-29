@@ -6,6 +6,8 @@ const isEmail =  require('./regexp/isEmail');
 const isPhone = require('./regexp/isPhone');
 const isUrl = require('./regexp/isUrl');
 const getUrlParam = require('./regexp/getUrlParam');
+const getOS = require('./regexp/getOS');
+const getExplore = require('./regexp/getExplore');
 
 const closestNode  = require('./dom/closestNode');
 const  elementFromPoint = require('./dom/elementFromPoint');
@@ -31,18 +33,20 @@ const  getCookie = require('./cookie/getCookie');
 const  setCookie = require('./cookie/setCookie');
 const  removeCookie = require('./cookie/removeCookie');
 
-
+const keyCode = require('./keycode/keyCode');
 
 module.exports = {
     // random
     s_random, n_random,
     // regexp
-    isChinaIDCard, isEmail, isPhone, isUrl, getUrlParam,
+    isChinaIDCard, isEmail, isPhone, isUrl, getUrlParam, getOS, getExplore,
     // dom
     css, getMaxZIndex, closestNode, elementFromPoint, getCaretPosition, getScrollLeft, getScrollTop, nextNode, parentNode, prevNode, scrollTo, setScrollTop, offset,
     // dom class
     hasClass, removeClass, addClass, toggleClass,
     // cookie
     getCookie, setCookie, removeCookie,
+    // keyCode
+    keyCode,
 
 };

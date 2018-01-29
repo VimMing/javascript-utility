@@ -339,4 +339,45 @@ describe('Dom API:', function () {
         })
     });
 
+    describe('#css()', () => {
+        let ele = null;
+        before(()=>{
+            ele = document.createElement('div');
+            ele.style.height = "100px";
+            ele.style.width = "101px";
+            ele.style.backgroundColor = "rgb(0, 0, 253)";
+            document.body.appendChild(ele);
+        });
+
+        it(`vim_utility.css(ele, 'prop') should return prop value`, () =>{
+            assert.equal(vim_utility.css(ele, 'height'), "100px");
+            assert.equal(vim_utility.css(ele, 'width'), "101px");
+            assert.equal(vim_utility.css(ele, 'background-color'), "rgb(0, 0, 253)");
+        });
+        after(()=>{
+            document.body.removeChild(ele);
+        });
+    });
+
+    describe('#getMaxZIndex()', () => {
+       let ele = null;
+       before(() => {
+           ele = document.createElement('div');
+           ele.innerHTML = `<ul style="position: relative; z-index: 1">
+                                <li style="position: relative; z-index: 1000">2134</li>
+                                <li style="position: relative; z-index: 10">231</li>
+                                <li style="position: relative; z-index: 100">1234</li>
+                            </ul>`;
+           document.body.appendChild(ele);
+       });
+
+       it(`getMaxZIndex() should return max z-index in the document`, ()=>{
+           assert(vim_utility.getMaxZIndex() === 1000);
+       });
+
+       after(() => {
+           document.body.removeChild(ele);
+       });
+    });
+
 });
