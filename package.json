@@ -1,6 +1,6 @@
 {
   "name": "vim_utility",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "helper function for javascript",
   "main": "dist/index.js",
   "scripts": {
