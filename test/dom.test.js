@@ -67,9 +67,9 @@ describe('Dom API:', function () {
         it(`vim_utility.scrollTo() should return true`, function (done) {
             vim_utility.scrollTo(y, duration);
             setTimeout(function () {
-                assert(vim_utility.getScrollTop() === y);
+                assert.equal(vim_utility.getScrollTop() , y);
                 done()
-            }, duration + 200)
+            }, duration + 1000)
         });
         after(function () {
             vim_utility.setScrollTop(0);
