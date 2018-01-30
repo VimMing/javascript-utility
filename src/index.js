@@ -35,6 +35,8 @@ const  removeCookie = require('./cookie/removeCookie');
 
 const keyCode = require('./keycode/keyCode');
 
+const throttle = require('./function/throttle');
+
 module.exports = {
     // random
     s_random, n_random,
@@ -48,5 +50,7 @@ module.exports = {
     getCookie, setCookie, removeCookie,
     // keyCode
     keyCode,
+    // function
+    throttle,
 
 };
