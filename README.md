@@ -1,5 +1,5 @@
 # javascript-utility
-![Build Status](https://travis-ci.org/VimMing/javascript-utility.svg?branch=master/)
+![Build Status](https://travis-ci.org/VimMing/javascript-utility.svg?branch=master)
 
 ## Install
 
@@ -76,7 +76,7 @@ const s_random = require('vim_utility/s_random');
 
 ### object
 
-
+[deepClone](https://github.com/VimMing/javascript-utility/blob/master/deepClone.js)
 
 
 
@@ -114,9 +114,6 @@ const s_random = require('vim_utility/s_random');
 
 [isUrl](https://github.com/VimMing/javascript-utility/blob/master/isUrl.js)
 
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-
-[](https://github.com/VimMing/javascript-utility/blob/master/)
 
 
 
@@ -124,35 +121,10 @@ const s_random = require('vim_utility/s_random');
 
 
 
+### time
 
+[getTimeStamp](https://github.com/VimMing/javascript-utility/blob/master/getTimeStamp.js)
 
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-
-
-
-
-
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-
-[](https://github.com/VimMing/javascript-utility/blob/master/)
-[](https://github.com/VimMing/javascript-utility/blob/master/)
 
 
 

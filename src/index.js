@@ -37,6 +37,9 @@ const keyCode = require('./keycode/keyCode');
 
 const throttle = require('./function/throttle');
 
+const deepClone = require('./object/deepClone');
+
+const getTimeStamp = require('./time/getTimeStamp');
 module.exports = {
     // random
     s_random, n_random,
@@ -52,5 +55,9 @@ module.exports = {
     keyCode,
     // function
     throttle,
+    //object
+    deepClone,
+    // time
+    getTimeStamp,
 
 };

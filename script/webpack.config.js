@@ -4,7 +4,7 @@
 const path = require("path");
 const pkg = require('../package.json');
 const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -33,9 +33,9 @@ module.exports = {
 
         ]
     },
-    plugins: [
-        new UglifyJsPlugin()
-    ]
+    // plugins: [
+    //     new UglifyJsPlugin()
+    // ]
     /*
     *  使用uglifyjsp时出现问题，它将我的变量替换了， 和删除， test出现问题, uglifyjsp的bug, 更新就好了
     * */

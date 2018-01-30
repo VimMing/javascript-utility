@@ -1,1 +1,1065 @@
-!function(t,e){"object"==typeof exports&&"object"==typeof module?module.exports=e():"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?exports.vim_utility=e():t.vim_utility=e()}("undefined"!=typeof self?self:this,function(){return function(t){var e={};function n(o){if(e[o])return e[o].exports;var r=e[o]={i:o,l:!1,exports:{}};return t[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=t,n.c=e,n.d=function(t,e,o){n.o(t,e)||Object.defineProperty(t,e,{configurable:!1,enumerable:!0,get:o})},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=7)}([function(t,e){t.exports=function(){return document.documentElement&&document.documentElement.scrollTop||document.body.scrollTop}},function(t,e){t.exports=function(t,e){return t instanceof Node&&t.classList.contains(e)}},function(t,e){t.exports=function(t){return/[\d\w-@:%._+~#=]{2,256}\.[a-z]{2,6}\b([\d\w-@:%_+.~#?&/=]*)/i.test(t)}},function(t,e){t.exports=function(){return document.documentElement&&document.documentElement.scrollLeft||document.body.scrollLeft}},function(t,e){t.exports=function(t){return window.scrollTo(0,t),t}},function(t,e){t.exports=function(t,e){let n=null;return getComputedStyle?n=document.defaultView.getComputedStyle(t,null).getPropertyValue(e):t.currentStyle&&(n=t.currentStyle[e]),n}},function(t,e){t.exports=function(t,e,n){let o=new Date;o.setDate(o.getDate()+n),document.cookie=`${t}=${e};expires=${o}`}},function(t,e,n){const o=n(8),r=n(9),i=n(10),u=n(11),c=n(12),s=n(2),a=n(13),l=n(14),f=n(15),d=n(16),p=n(17),m=n(18),x=n(3),g=n(0),h=n(19),w=n(20),v=n(21),N=n(22),C=n(4),S=n(23),y=n(5),b=n(24),E=n(1),F=n(25),L=n(26),P=n(27),k=n(28),M=n(6),T=n(29),D=n(30),I=n(31);t.exports={s_random:o,n_random:r,isChinaIDCard:i,isEmail:u,isPhone:c,isUrl:s,getUrlParam:a,getOS:l,getExplore:f,css:y,getMaxZIndex:b,closestNode:d,elementFromPoint:p,getCaretPosition:m,getScrollLeft:x,getScrollTop:g,nextNode:h,parentNode:w,prevNode:v,scrollTo:N,setScrollTop:C,offset:S,hasClass:E,removeClass:L,addClass:F,toggleClass:P,getCookie:k,setCookie:M,removeCookie:T,keyCode:D,throttle:I}},function(t,e){t.exports=function(t=6){let e="",n="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";for(let o=0;o<t;o++)e+=n[Math.floor(Math.random()*n.length)];return e}},function(t,e){t.exports=function(t,e,n=1){let o=[];for(let r=0;r<n;r++)o.push(Math.floor(Math.random()*(e-t+1))+t);return n<=1?o[0]:o}},function(t,e){t.exports=function(t){let e=/^\d{17}(\d|X|x)$/.test(t);if(e){let n=0,o=[7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2],r=[1,0,"X",9,8,7,6,5,4,3,2];for(let[e,r]of o.entries())n+=r*parseInt(t[e]);let i=r[n%11];e=t.toUpperCase().endsWith(i.toString())}return e}},function(t,e){t.exports=function(t){return/^[\w\.]+@\w+\.\w+$/.test(t)}},function(t,e){t.exports=function(t){return/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/.test(t)}},function(t,e,n){const o=n(2);t.exports=function(t){let e=new Map,n=/\??((\w+)\=(\w+))\&?/g;if(!o(t))return e;let r=null;do{null!==(r=n.exec(t))&&e.set(r[2],r[3])}while(null!==r);return e}},function(t,e){t.exports=function(){var t="navigator"in window&&"userAgent"in navigator&&navigator.userAgent.toLowerCase()||"",e="navigator"in window&&"appVersion"in navigator&&navigator.appVersion.toLowerCase()||"";return/iphone/i.test(t)||/ipad/i.test(t)||/ipod/i.test(t)?"ios":/android/i.test(t)?"android":/win/i.test(e)&&/phone/i.test(t)?"windowsPhone":/mac/i.test(e)?"MacOSX":/win/i.test(e)?"windows":/linux/i.test(e)?"linux":void 0}},function(t,e){t.exports=function(){var t,e={},n=navigator.userAgent.toLowerCase();return(t=n.match(/rv:([\d.]+)\) like gecko/))?e.ie=t[1]:(t=n.match(/msie ([\d\.]+)/))?e.ie=t[1]:(t=n.match(/edge\/([\d\.]+)/))?e.edge=t[1]:(t=n.match(/firefox\/([\d\.]+)/))?e.firefox=t[1]:(t=n.match(/(?:opera|opr).([\d\.]+)/))?e.opera=t[1]:(t=n.match(/chrome\/([\d\.]+)/))?e.chrome=t[1]:(t=n.match(/version\/([\d\.]+).*safari/))&&(e.safari=t[1]),e.ie?"IE: "+e.ie:e.edge?"EDGE: "+e.edge:e.firefox?"Firefox: "+e.firefox:e.chrome?"Chrome: "+e.chrome:e.opera?"Opera: "+e.opera:e.safari?"Safari: "+e.safari:"Unclear"}},function(t,e){t.exports=function(t,e){for(;null!==t&&void 0!==t;){if(t.matches(e))return t;t=t&&t.parentElement}return null}},function(t,e,n){const o=n(3),r=n(0);t.exports=function(t){let e=o(),n=r();return document.elementFromPoint(t.pageX-(e||window.pageXOffset),t.pageY-(window.pageYOffset||n))}},function(t,e){t.exports=function(t){var e=0;if(document.selection){t.focus();var n=document.selection.createRange();n.moveStart("character",-t.value.length),e=n.text.length}else(t.selectionStart||"0"==t.selectionStart)&&(e=t.selectionStart);return e}},function(t,e){t.exports=function(t,e){for(t=t.nextElementSibling;null!==t&&void 0!==t;){if(void 0===e||null===e||t.matches(e))return t;t=t.nextElementSibling}return null}},function(t,e){t.exports=function(t,e,n){for(t=t&&t.parentElement;null!==t&&void 0!==t;){if(void 0!==n&&!n.hasChildNodes(t)&&n!==t)return null;if(t.matches(e))return t;t=t&&t.parentElement}return null}},function(t,e){t.exports=function(t,e){for(t=t.previousElementSibling;null!==t&&void 0!==t;){if(void 0===e||null===e||t.matches(e))return t;t=t.previousElementSibling}return null}},function(t,e,n){const o=n(0),r=n(4),i=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||function(t){window.setTimeout(t,10)};t.exports=function t(e,n){if(n<0)return void r(e);let u=e-o();if(0===u)return;let c=u/n*2.718;i(function(){Math.abs(c)>Math.abs(u)?r(o()+u):(r(o()+c),u>0&&o()>=e||u<0&&o()<=e||t(e,n-10))})}},function(t,e){t.exports=function(t){let e={left:0,top:0};for(;t;)e.left+=t.offsetLeft,e.top+=t.offsetTop,t=t.offsetParent;return e}},function(t,e,n){const o=n(5);t.exports=function t(e){let n,r=void 0===e?document.body.children:e.children,i=0;for(let e of r)i=i<(n="auto"===(n=t(e))?0:parseInt(n))?n:i;return e instanceof Node&&(i=i<(n="auto"===(n=o(e,"z-index"))?0:parseInt(n))?n:i),i}},function(t,e,n){const o=n(1);t.exports=function(t,e){!o()&&t instanceof Node&&t.classList.add(e)}},function(t,e,n){const o=n(1);t.exports=function(t,e){o(t,e)&&t.classList.remove(e)}},function(t,e){t.exports=function(t,e){t instanceof Node&&t.classList.toggle(e)}},function(t,e){t.exports=function(t){let e=document.cookie.split(";");for(let n=0;n<e.length;n++){let o=e[n].trim().split("=");if(o[0]===t)return decodeURIComponent(o[1])}return""}},function(t,e,n){const o=n(6);t.exports=function(t){o(t,"",-1)}},function(t,e){const n=new Map([["Backspace",8],["Tab",9],["Enter",13],["Shift",16],["Ctrl",17],["Alt",18],["Pause",19],["Caps Lock",20],["Escape",27],["Space",32],["Page Up",33],["Page Down",34],["End",35],["Home",36],["Left",37],["Up",38],["Right",39],["Down",40],["Print Screen",42],["Insert",45],["Delete",46],["0",48],["1",49],["2",50],["3",51],["4",52],["5",53],["6",54],["7",55],["8",56],["9",57],["A",65],["B",66],["C",67],["D",68],["E",69],["F",70],["G",71],["H",72],["I",73],["J",74],["K",75],["L",76],["M",77],["N",78],["O",79],["P",80],["Q",81],["R",82],["S",83],["T",84],["U",85],["V",86],["W",87],["X",88],["Y",89],["Z",90],["Windows",91],["Right Click",93],["Numpad 0",96],["Numpad 1",97],["Numpad 2",98],["Numpad 3",99],["Numpad 4",100],["Numpad 5",101],["Numpad 6",102],["Numpad 7",103],["Numpad 8",104],["Numpad 9",105],["Numpad *",106],["Numpad +",107],["Numpad -",109],["Numpad .",110],["Numpad /",111],["F1",112],["F2",113],["F3",114],["F4",115],["F5",116],["F6",117],["F7",118],["F8",119],["F9",120],["F10",121],["F11",122],["F12",123],["Num Lock",144],["Scroll Lock",145],["My Computer",182],["My Calculator",183],[";",186],["=",187],[",",188],["-",189],[".",190],["/",191],["`",192],["[",219],["\\",220],["]",221],["'",222]]);t.exports=function(t){return"string"==typeof t?n.get(t):null}},function(t,e){t.exports=function(t,e,n=!1,o=!1){let r,i=0;return function(...u){let c=0===i?0:Number(new Date)-i,s=()=>{i=Number(new Date),e.apply(this,u)};t<c&&r||!1===n&&(0===i||t<c)?(r&&clearTimeout(r),r=void 0,s()):!0===n&&(!0===o&&(0===i||t<c)?s():(r&&clearTimeout(r),r=setTimeout(s,t)))}}}])});
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["vim_utility"] = factory();
+	else
+		root["vim_utility"] = factory();
+})(typeof self !== 'undefined' ? self : this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+/**
+ * 
+ * @description get distance that is scrollbar from window top
+ */
+function getScrollTop() {
+    return (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+}
+
+module.exports = getScrollTop;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+/**
+ * @description test whether element has class
+ * @param ele{Node}
+ * @param cls{string}
+ * @return {boolean}
+ */
+function hasClass(ele, cls) {
+    if(ele instanceof Node){
+        return ele.classList.contains(cls);
+    }
+    return false;
+}
+
+module.exports= hasClass;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+/****
+ * @description judge whether str is url
+ * @param str {string}
+ * @returns {boolean}
+ */
+
+function isUrl(str) {
+    return /[\d\w-@:%._+~#=]{2,256}\.[a-z]{2,6}\b([\d\w-@:%_+.~#?&/=]*)/i.test(str);
+}
+
+module.exports = isUrl;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+/**
+ *
+ * @description get distance that is scrollbar from window left
+ */
+function getScrollLeft() {
+    return (document.documentElement && document.documentElement.scrollLeft) || document.body.scrollLeft;
+}
+
+module.exports = getScrollLeft;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+/**
+ * 
+ * @description set distance that is scrollbar from window top
+ */
+function setScrollTop(value) {
+    window.scrollTo(0, value);
+    return value;
+}
+
+module.exports = setScrollTop;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+/***
+ * @description get css attribute value
+ * @param ele{Node}
+ * @param prop{string}
+ * @return {*}
+ */
+function css(ele, prop) {
+    let res = null;
+    if(getComputedStyle){
+        res = document.defaultView.getComputedStyle(ele, null).getPropertyValue(prop);
+    }else if(ele.currentStyle){
+        res = ele.currentStyle[prop];
+    }
+    return res;
+}
+
+module.exports = css;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+/**
+ *
+ * @description set Cookie
+ * @param key{String}
+ * @param value{String}
+ * @param days{Number}
+ */
+function setCookie(key, value, days) {
+    let date = new Date();
+    date.setDate(date.getDate() + days);
+    document.cookie = `${key}=${value};expires=${date}`;
+}
+
+module.exports = setCookie;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const s_random = __webpack_require__(8);
+const n_random = __webpack_require__(9);
+
+const isChinaIDCard = __webpack_require__(10);
+const isEmail =  __webpack_require__(11);
+const isPhone = __webpack_require__(12);
+const isUrl = __webpack_require__(2);
+const getUrlParam = __webpack_require__(13);
+const getOS = __webpack_require__(14);
+const getExplore = __webpack_require__(15);
+
+const closestNode  = __webpack_require__(16);
+const  elementFromPoint = __webpack_require__(17);
+const  getCaretPosition = __webpack_require__(18);
+const  getScrollLeft = __webpack_require__(3);
+const  getScrollTop = __webpack_require__(0);
+const  nextNode = __webpack_require__(19);
+const  parentNode = __webpack_require__(20);
+const  prevNode = __webpack_require__(21);
+const  scrollTo = __webpack_require__(22);
+const  setScrollTop = __webpack_require__(4);
+const  offset = __webpack_require__(23);
+const  css = __webpack_require__(5);
+const getMaxZIndex = __webpack_require__(24);
+
+const hasClass= __webpack_require__(1);
+const addClass= __webpack_require__(25);
+const removeClass= __webpack_require__(26);
+const toggleClass= __webpack_require__(27);
+
+
+const  getCookie = __webpack_require__(28);
+const  setCookie = __webpack_require__(6);
+const  removeCookie = __webpack_require__(29);
+
+const keyCode = __webpack_require__(30);
+
+const throttle = __webpack_require__(31);
+
+const deepClone = __webpack_require__(32);
+
+const getTimeStamp = __webpack_require__(33);
+module.exports = {
+    // random
+    s_random, n_random,
+    // regexp
+    isChinaIDCard, isEmail, isPhone, isUrl, getUrlParam, getOS, getExplore,
+    // dom
+    css, getMaxZIndex, closestNode, elementFromPoint, getCaretPosition, getScrollLeft, getScrollTop, nextNode, parentNode, prevNode, scrollTo, setScrollTop, offset,
+    // dom class
+    hasClass, removeClass, addClass, toggleClass,
+    // cookie
+    getCookie, setCookie, removeCookie,
+    // keyCode
+    keyCode,
+    // function
+    throttle,
+    //object
+    deepClone,
+    // time
+    getTimeStamp,
+
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+/******
+ *
+ * @param n{number}
+ * @returns {string}
+ * @effect produce random string
+ */
+function s_random(n = 6) {
+    let text = "" , possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (let i = 0; i < n; i++)
+        text += possible[Math.floor(Math.random() * possible.length)];
+    return text;
+}
+
+module.exports = s_random;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+/**
+ *
+ * @desc generate specified range [min, max] numbers
+ * @param  {Number} min
+ * @param  {Number} max
+ * @param  {Number} n
+ * @return {Number}
+ */
+function n_random(min, max, n = 1) {
+    let res = [];
+    for(let i = 0; i < n ; i++){
+        res.push(Math.floor(Math.random() * (max-min+1) )+ min);
+    }
+    if(n <= 1)
+        return res[0];
+    else{
+        return res;
+    }
+}
+
+module.exports = n_random;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+/***
+ * @description judge china id card
+ * @param str {string}
+ * @returns {boolean}
+ */
+
+function isChinaIDCard(str) {
+    let res = /^\d{17}(\d|X|x)$/.test(str);
+    if(res){
+        let sum = 0;
+        let coefficient = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+        let verification = [1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2];
+        for(let [key, value] of coefficient.entries()){
+            sum += value*parseInt(str[key]);
+        }
+        let vCode = verification[sum % 11];
+        res = str.toUpperCase().endsWith(vCode.toString());
+    }
+    return res;
+}
+
+module.exports = isChinaIDCard;
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+/****
+ * @description judge email address
+ * @param str {string}
+ * @returns {boolean}
+ */
+function isEmail(str) {
+    return /^[\w\.]+@\w+\.\w+$/.test(str);
+}
+
+module.exports = isEmail;
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+/*****
+ * @description judge phone number
+ * @param str {string | number}
+ * @returns {boolean}
+ */
+function isPhone(str) {
+    return /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/.test(str);
+}
+
+module.exports = isPhone;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const isUrl = __webpack_require__(2);
+
+/****
+ * @description extract parameters from href
+ * @param str{string}
+ * @returns {Map}
+ */
+function getUrlParam(str) {
+    str = decodeURI(str);
+    let res = new Map(), reg = /\??((\w+)\=(\w+))\&?/g;
+    if(!isUrl(str)) return res;
+    let match = null;
+    do{
+        match = reg.exec(str);
+        if(match !== null) res.set(match[2], match[3]);
+    }while(match !== null);
+
+    return res;
+}
+
+module.exports = getUrlParam;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+/**
+ * 
+ * @desc get operation type
+ * @return {String} 
+ */
+function getOS() {
+    var userAgent = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase() || '';
+    var appVersion = 'navigator' in window && 'appVersion' in navigator && navigator.appVersion.toLowerCase() || '';
+
+    if (/iphone/i.test(userAgent) || /ipad/i.test(userAgent) || /ipod/i.test(userAgent)) return 'ios';
+    if (/android/i.test(userAgent)) return 'android';
+    if (/win/i.test(appVersion) && /phone/i.test(userAgent)) return 'windowsPhone';
+    if (/mac/i.test(appVersion)) return 'MacOSX';
+    if (/win/i.test(appVersion)) return 'windows';
+    if (/linux/i.test(appVersion)) return 'linux';
+}
+
+module.exports = getOS;
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+/**
+ * 
+ * @desc get explore type and version
+ * @return {String} 
+ */
+function getExplore() {
+    var sys = {},
+        ua = navigator.userAgent.toLowerCase(),
+        s;
+    (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? sys.ie = s[1]:
+        (s = ua.match(/msie ([\d\.]+)/)) ? sys.ie = s[1] :
+        (s = ua.match(/edge\/([\d\.]+)/)) ? sys.edge = s[1] :
+        (s = ua.match(/firefox\/([\d\.]+)/)) ? sys.firefox = s[1] :
+        (s = ua.match(/(?:opera|opr).([\d\.]+)/)) ? sys.opera = s[1] :
+        (s = ua.match(/chrome\/([\d\.]+)/)) ? sys.chrome = s[1] :
+        (s = ua.match(/version\/([\d\.]+).*safari/)) ? sys.safari = s[1] : 0;
+
+    if (sys.ie) return ('IE: ' + sys.ie);
+    if (sys.edge) return ('EDGE: ' + sys.edge);
+    if (sys.firefox) return ('Firefox: ' + sys.firefox);
+    if (sys.chrome) return ('Chrome: ' + sys.chrome);
+    if (sys.opera) return ('Opera: ' + sys.opera);
+    if (sys.safari) return ('Safari: ' + sys.safari);
+    return "Unclear";
+}
+
+module.exports = getExplore;
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+
+/***
+ * @description get closest element depending on selector
+ * @param el {Node}
+ * @param selector{string}
+ * @returns {null | Node}
+ */
+
+function closestNode(el, selector) {
+    while (el !== null && el !== undefined) {
+        if (el.matches(selector)) {
+            return el;
+        }
+        el = el && el.parentElement;
+    }
+    return null;
+}
+
+module.exports = closestNode;
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/***
+ * @description get element node from mouse point
+*  @param e{object} e is mouse event
+ *  @return {null | elementNode}
+* */
+
+const getScrollLeft = __webpack_require__(3);
+const getScrollTop = __webpack_require__(0);
+function elementFromPoint(e) {
+    let scrollLeft = getScrollLeft();
+    let scrollTop = getScrollTop();
+    return document.elementFromPoint(e.pageX - (scrollLeft || window.pageXOffset), e.pageY - (window.pageYOffset || scrollTop));
+}
+
+module.exports = elementFromPoint;
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+/***
+ * @description get caret position
+ * @param el {elementNode}
+ * @return {number}
+ */
+
+function getCaretPosition (el) {
+
+    var iCaretPos = 0;
+    // IE Support
+    if (document.selection) {
+        el.focus();
+        // To get cursor position, get empty selection range
+        var oSel = document.selection.createRange();
+        // Move selection start to 0 position
+        oSel.moveStart('character', -el.value.length);
+        // The caret position is selection length
+        iCaretPos = oSel.text.length;
+    }
+    else if (el.selectionStart || el.selectionStart == '0')
+        iCaretPos = el.selectionStart;
+    return iCaretPos;
+}
+
+module.exports = getCaretPosition;
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+/**
+ * @description get next element sibling
+ * @param el {nodeElement}
+ * @param selector {string}
+ * @returns {*}
+ */
+
+function nextNode(el, selector) {
+    el = el.nextElementSibling;
+    while (el !== null && el !== undefined) {
+        if (selector === undefined || selector === null || el.matches(selector)) {
+            return el;
+        }
+        el = el.nextElementSibling;
+    }
+    return null;
+}
+
+module.exports = nextNode;
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+
+/***
+ *  @description according to the selector and root node element to get parentNode
+ *  @param el {nodeElement}
+ *  @param selector {string}
+ *  @param root{ nodeElement}
+ */
+function parentNode(el, selector, root) {
+    el = el && el.parentElement;
+    while (el !== null && el !== undefined) {
+        if(root !== undefined && !root.hasChildNodes(el) && root !== el){
+            return null;
+        }
+        else if (el.matches(selector)) {
+            return el;
+        }
+        el = el && el.parentElement;
+    }
+    return null;
+}
+
+module.exports = parentNode;
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+/**
+ * @description get previous element sibling
+ * @param el {nodeElement}
+ * @param selector {string}
+ * @returns {*}
+ */
+function prevNode(el, selector) {
+    el = el.previousElementSibling;
+    while (el !== null && el !== undefined) {
+        if (selector === undefined || selector === null || el.matches(selector)) {
+            return el;
+        }
+        el = el.previousElementSibling;
+    }
+    return null;
+}
+
+module.exports = prevNode;
+
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const getScrollTop = __webpack_require__(0);
+const setScrollTop = __webpack_require__(4);
+const requestAnimationFrame = (function () {
+    return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        function (callback) {
+            window.setTimeout(callback, 10);
+        };
+})();
+/**
+ * 
+ * @desc  scroll to given place during given time
+ * @param {Number} to 
+ * @param {Number} duration 
+ */
+function scrollTo(to, duration) {
+    if (duration < 0) {
+        setScrollTop(to);
+        return;
+    }
+    let diff = to - getScrollTop();
+    if (diff === 0) return;
+    let step = (diff / duration)*2.718;
+    requestAnimationFrame(
+        function () {
+            if (Math.abs(step) > Math.abs(diff)) {
+                setScrollTop(getScrollTop() + diff);
+                return;
+            }
+            setScrollTop(getScrollTop() + step);
+            if (diff > 0 && getScrollTop() >= to || diff < 0 && getScrollTop() <= to) {
+                return;
+            }
+            scrollTo(to, duration - 10);
+        });
+}
+
+module.exports = scrollTo;
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+/**
+ * 
+ * @description  get distance of current element from document
+ * @param {HTMLElement} ele 
+ * @returns { {left: number, top: number} }
+ */
+function offset(ele) {
+    let pos = {
+        left: 0,
+        top: 0
+    };
+    while (ele) {
+        pos.left += ele.offsetLeft;
+        pos.top += ele.offsetTop;
+        ele = ele.offsetParent;
+    }
+    return pos;
+}
+
+module.exports = offset;
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const css = __webpack_require__(5);
+
+/**
+ * get max z-index value in the given element 's children by the default ele == document.body
+ * @return {number}
+ */
+
+function getMaxZIndex(ele) {
+    let children = ele === undefined ? document.body.children : ele.children;
+    let res = 0, zIndex;
+    for(let v of children){
+         zIndex = getMaxZIndex(v);
+         zIndex = zIndex === "auto" ? 0 : parseInt(zIndex);
+         res = res < zIndex ? zIndex : res;
+    }
+    if(ele instanceof Node){
+        zIndex =css(ele, 'z-index');
+        zIndex = zIndex === "auto" ? 0 : parseInt(zIndex);
+        res = res < zIndex ? zIndex : res;
+    }
+    return res;
+}
+
+module.exports = getMaxZIndex;
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const hasClass = __webpack_require__(1);
+
+/***
+ * @description element add class
+ * @param ele{Node}
+ * @param cls{string}
+ */
+function addClass(ele, cls){
+    if(!hasClass() && ele instanceof Node){
+        ele.classList.add(cls);
+    }
+}
+
+module.exports = addClass;
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const hasClass = __webpack_require__(1);
+
+/****
+ * @description element remove class
+ * @param ele{Node}
+ * @param cls{string}
+ */
+function removeClass(ele, cls) {
+    if(hasClass(ele, cls)){
+        ele.classList.remove(cls);
+    }
+}
+
+module.exports = removeClass;
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports) {
+
+/**
+ * @description element toggle class
+ * @param ele{Node}
+ * @param cls{string}
+ */
+function toggleClass(ele, cls) {
+    if(ele instanceof Node){
+        ele.classList.toggle(cls);
+    }
+}
+
+module.exports = toggleClass;
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+/**
+ *
+ * @description get cookies
+ * @param  key{String}
+ * @return value{String}
+ */
+function getCookie(key) {
+    let arr = document.cookie.split(';');
+    for (let i = 0; i < arr.length; i++) {
+        let tempArr = arr[i].trim().split('=');
+        if (tempArr[0] === key) {
+            return decodeURIComponent(tempArr[1]);
+        }
+    }
+    return '';
+}
+
+module.exports = getCookie;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const setCookie = __webpack_require__(6);
+
+/***
+ * @description remove cookies
+ * @param key{string}
+ */
+function removeCookie(key) {
+    setCookie(key, "", -1);
+}
+
+module.exports = removeCookie;
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports) {
+
+const map = new Map([
+    ['Backspace', 8],
+    ['Tab', 9],
+    ['Enter', 13],
+    ['Shift', 16],
+    ['Ctrl', 17],
+    ['Alt', 18],
+    ['Pause', 19],
+    ['Caps Lock', 20],
+    ['Escape', 27],
+    ['Space', 32],
+    ['Page Up', 33],
+    ['Page Down', 34],
+    ['End', 35],
+    ['Home', 36],
+    ['Left', 37],
+    ['Up', 38],
+    ['Right', 39],
+    ['Down', 40],
+    ['Print Screen', 42],
+    ['Insert', 45],
+    ['Delete', 46],
+
+    ['0', 48],
+    ['1', 49],
+    ['2', 50],
+    ['3', 51],
+    ['4', 52],
+    ['5', 53],
+    ['6', 54],
+    ['7', 55],
+    ['8', 56],
+    ['9', 57],
+
+    ['A', 65],
+    ['B', 66],
+    ['C', 67],
+    ['D', 68],
+    ['E', 69],
+    ['F', 70],
+    ['G', 71],
+    ['H', 72],
+    ['I', 73],
+    ['J', 74],
+    ['K', 75],
+    ['L', 76],
+    ['M', 77],
+    ['N', 78],
+    ['O', 79],
+    ['P', 80],
+    ['Q', 81],
+    ['R', 82],
+    ['S', 83],
+    ['T', 84],
+    ['U', 85],
+    ['V', 86],
+    ['W', 87],
+    ['X', 88],
+    ['Y', 89],
+    ['Z', 90],
+
+    ['Windows', 91],
+    ['Right Click', 93],
+
+    ['Numpad 0', 96],
+    ['Numpad 1', 97],
+    ['Numpad 2', 98],
+    ['Numpad 3', 99],
+    ['Numpad 4', 100],
+    ['Numpad 5', 101],
+    ['Numpad 6', 102],
+    ['Numpad 7', 103],
+    ['Numpad 8', 104],
+    ['Numpad 9', 105],
+    ['Numpad *', 106],
+    ['Numpad +', 107],
+    ['Numpad -', 109],
+    ['Numpad .', 110],
+    ['Numpad /', 111],
+
+    ['F1', 112],
+    ['F2', 113],
+    ['F3', 114],
+    ['F4', 115],
+    ['F5', 116],
+    ['F6', 117],
+    ['F7', 118],
+    ['F8', 119],
+    ['F9', 120],
+    ['F10', 121],
+    ['F11', 122],
+    ['F12', 123],
+
+    ['Num Lock', 144],
+    ['Scroll Lock', 145],
+    ['My Computer', 182],
+    ['My Calculator', 183],
+    [';', 186],
+    ['=', 187],
+    [',', 188],
+    ['-', 189],
+    ['.', 190],
+    ['/', 191],
+    ['`', 192],
+    ['[', 219],
+    ['\\', 220],
+    [']', 221],
+    ['\'', 222]
+]);
+
+/**
+ * @description get keyCode
+ * @param name
+ * @return {*}
+ */
+function keyCode(name) {
+    return typeof name === 'string' ? map.get(name) : null;
+}
+
+module.exports = keyCode;
+
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+/***
+ * @author vimmingshe@gmail.com
+ * @date 30/01/2018 8:59 AM
+ * @description: limit frequency of function call
+ * @detail https://css-tricks.com/debouncing-throttling-explained-examples/
+ ***/
+
+/****
+ *
+ * @param delay {number} unit: ms,  interval time of two same function invoked
+ * @param callback {function} callback function
+ * @param debounceMode {boolean} is debounce mode
+ * @param immediate {boolean} if true invoked immediate then callback can't execute during delay ms
+ * @returns {function} return wrap function
+ */
+
+
+/**@throttleMode **/
+// Returns a function, that, when invoked, will only be triggered at most once
+// during a given window of time.
+
+/**@debounceMode**/
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+
+
+function throttle(delay, callback, debounceMode = false, immediate = false) {
+    let timeoutID, lastExec = 0;
+
+    function wrapper(...args) {
+
+        let elapsed = lastExec === 0 ? 0 : Number(new Date()) - lastExec;
+
+        let exec = () => {
+            lastExec = Number(new Date());
+            callback.apply(this, args);
+        };
+
+        if (delay < elapsed && timeoutID || (debounceMode === false && (lastExec === 0 || delay < elapsed)) ) {
+            if (timeoutID) clearTimeout(timeoutID);
+            timeoutID = undefined;
+            exec();
+        }
+        else if (debounceMode === true) {
+            if (immediate === true && (lastExec === 0 || delay < elapsed)) {
+                exec();
+            } else {
+                if (timeoutID) clearTimeout(timeoutID);
+                timeoutID = setTimeout(exec, delay);
+            }
+        }
+
+    }
+
+    return wrapper;
+
+}
+
+module.exports = throttle;
+
+
+
+
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports) {
+
+/***
+ * @author vimmingshe@gmail.com
+ * @date 30/01/2018 4:41 PM
+ * @description:
+ ***/
+
+/**
+ * @description deep clone 
+ * @param {Any} values
+ */
+function deepClone(values) {
+    let copy;
+
+    // Handle the 3 simple types, and null or undefined
+    if (values === undefined || null === values || "object" !== typeof values) return values;
+
+    // Handle Date
+    if (values instanceof Date) {
+        copy = new Date();
+        copy.setTime(values.getTime());
+        return copy;
+    }
+
+    // Handle Array
+    if (values instanceof Array) {
+        copy = [];
+        for (let i = 0, len = values.length; i < len; i++) {
+            copy[i] = deepClone(values[i]);
+        }
+        return copy;
+    }
+
+    // Handle Object
+    if (values instanceof Object) {
+        copy = {};
+        for (let key in values) {
+            if (values.hasOwnProperty(key)) copy[key] = deepClone(values[key]);
+        }
+        return copy;
+    }
+
+    throw new Error("Unable to copy values! Its type isn't supported.");
+}
+
+module.exports = deepClone;
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports) {
+
+/***
+ * @author vimmingshe@gmail.com
+ * @date 30/01/2018 5:14 PM
+ * @description: get timestamp that it 's unit is second
+ ***/
+
+
+/****
+ *
+ * @param cal
+ * @param d {number} day
+ * @param m {number} minute
+ * @param h  {number} hour
+ * @param s {number} second
+ * @returns {number}
+ */
+function getTimeStamp({ cal = new Date(), d = 0, h = 0, m = 0 , s = 0 } = {}) {
+    return Math.floor(cal.getTime() / 1000) + d*24*60*60 + h*60*60 + m*60 + s;
+}
+
+module.exports = getTimeStamp;
+
+/***/ })
+/******/ ]);
+});
