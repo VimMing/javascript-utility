@@ -36,20 +36,22 @@ function throttle(delay, callback, debounceMode = false, immediate = false) {
         let exec = () => {
             lastExec = Number(new Date());
             callback.apply(this, args);
-        };
-
-        if (delay < elapsed && timeoutID || (debounceMode === false && (lastExec === 0 || delay < elapsed)) ) {
             if (timeoutID) clearTimeout(timeoutID);
             timeoutID = undefined;
-            exec();
-        }
-        else if (debounceMode === true) {
+        };
+
+        if (debounceMode === true) {
             if (immediate === true && (lastExec === 0 || delay < elapsed)) {
                 exec();
             } else {
                 if (timeoutID) clearTimeout(timeoutID);
                 timeoutID = setTimeout(exec, delay);
             }
+        } else if (delay < elapsed && timeoutID || (debounceMode === false && (lastExec === 0 || delay < elapsed)) )
+        {
+            if (timeoutID) clearTimeout(timeoutID);
+            timeoutID = undefined;
+            exec();
         }
 
     }

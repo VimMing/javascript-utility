@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -194,50 +194,126 @@ module.exports = setCookie;
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports) {
+
+/***
+ * @author vimmingshe@gmail.com
+ * @date 30/01/2018 8:59 AM
+ * @description: limit frequency of function call
+ * @detail https://css-tricks.com/debouncing-throttling-explained-examples/
+ ***/
+
+/****
+ *
+ * @param delay {number} unit: ms,  interval time of two same function invoked
+ * @param callback {function} callback function
+ * @param debounceMode {boolean} is debounce mode
+ * @param immediate {boolean} if true invoked immediate then callback can't execute during delay ms
+ * @returns {function} return wrap function
+ */
+
+
+/**@throttleMode **/
+// Returns a function, that, when invoked, will only be triggered at most once
+// during a given window of time.
+
+/**@debounceMode**/
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+
+
+function throttle(delay, callback, debounceMode = false, immediate = false) {
+    let timeoutID, lastExec = 0;
+
+    function wrapper(...args) {
+
+        let elapsed = lastExec === 0 ? 0 : Number(new Date()) - lastExec;
+
+        let exec = () => {
+            lastExec = Number(new Date());
+            callback.apply(this, args);
+            if (timeoutID) clearTimeout(timeoutID);
+            timeoutID = undefined;
+        };
+
+        if (debounceMode === true) {
+            if (immediate === true && (lastExec === 0 || delay < elapsed)) {
+                exec();
+            } else {
+                if (timeoutID) clearTimeout(timeoutID);
+                timeoutID = setTimeout(exec, delay);
+            }
+        } else if (delay < elapsed && timeoutID || (debounceMode === false && (lastExec === 0 || delay < elapsed)) )
+        {
+            if (timeoutID) clearTimeout(timeoutID);
+            timeoutID = undefined;
+            exec();
+        }
+
+    }
+
+    return wrapper;
+
+}
+
+module.exports = throttle;
+
+
+
+
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const s_random = __webpack_require__(8);
-const n_random = __webpack_require__(9);
+const s_random = __webpack_require__(9);
+const n_random = __webpack_require__(10);
 
-const isChinaIDCard = __webpack_require__(10);
-const isEmail =  __webpack_require__(11);
-const isPhone = __webpack_require__(12);
+const isChinaIDCard = __webpack_require__(11);
+const isEmail =  __webpack_require__(12);
+const isPhone = __webpack_require__(13);
 const isUrl = __webpack_require__(2);
-const getUrlParam = __webpack_require__(13);
-const getOS = __webpack_require__(14);
-const getExplore = __webpack_require__(15);
+const getUrlParam = __webpack_require__(14);
+const getOS = __webpack_require__(15);
+const getExplore = __webpack_require__(16);
 
-const closestNode  = __webpack_require__(16);
-const  elementFromPoint = __webpack_require__(17);
-const  getCaretPosition = __webpack_require__(18);
+const closestNode  = __webpack_require__(17);
+const  elementFromPoint = __webpack_require__(18);
+const  getCaretPosition = __webpack_require__(19);
 const  getScrollLeft = __webpack_require__(3);
 const  getScrollTop = __webpack_require__(0);
-const  nextNode = __webpack_require__(19);
-const  parentNode = __webpack_require__(20);
-const  prevNode = __webpack_require__(21);
-const  scrollTo = __webpack_require__(22);
+const  nextNode = __webpack_require__(20);
+const  parentNode = __webpack_require__(21);
+const  prevNode = __webpack_require__(22);
+const  scrollTo = __webpack_require__(23);
 const  setScrollTop = __webpack_require__(4);
-const  offset = __webpack_require__(23);
+const  offset = __webpack_require__(24);
 const  css = __webpack_require__(5);
-const getMaxZIndex = __webpack_require__(24);
+const getMaxZIndex = __webpack_require__(25);
 
 const hasClass= __webpack_require__(1);
-const addClass= __webpack_require__(25);
-const removeClass= __webpack_require__(26);
-const toggleClass= __webpack_require__(27);
+const addClass= __webpack_require__(26);
+const removeClass= __webpack_require__(27);
+const toggleClass= __webpack_require__(28);
 
 
-const  getCookie = __webpack_require__(28);
+const  getCookie = __webpack_require__(29);
 const  setCookie = __webpack_require__(6);
-const  removeCookie = __webpack_require__(29);
+const  removeCookie = __webpack_require__(30);
 
-const keyCode = __webpack_require__(30);
+const keyCode = __webpack_require__(31);
 
-const throttle = __webpack_require__(31);
+const throttle = __webpack_require__(7);
+const debounce = __webpack_require__(32);
 
-const deepClone = __webpack_require__(32);
 
-const getTimeStamp = __webpack_require__(33);
+const deepClone = __webpack_require__(33);
+
+const getTimeStamp = __webpack_require__(34);
+
+const toDataUri = __webpack_require__(35);
 module.exports = {
     // random
     s_random, n_random,
@@ -252,16 +328,17 @@ module.exports = {
     // keyCode
     keyCode,
     // function
-    throttle,
+    throttle, debounce,
     //object
     deepClone,
     // time
     getTimeStamp,
 
+    toDataUri,
 };
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 /******
@@ -280,7 +357,7 @@ function s_random(n = 6) {
 module.exports = s_random;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 /**
@@ -306,7 +383,7 @@ function n_random(min, max, n = 1) {
 module.exports = n_random;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 /***
@@ -333,7 +410,7 @@ function isChinaIDCard(str) {
 module.exports = isChinaIDCard;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 /****
@@ -348,7 +425,7 @@ function isEmail(str) {
 module.exports = isEmail;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 /*****
@@ -363,7 +440,7 @@ function isPhone(str) {
 module.exports = isPhone;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const isUrl = __webpack_require__(2);
@@ -389,7 +466,7 @@ function getUrlParam(str) {
 module.exports = getUrlParam;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 /**
@@ -412,7 +489,7 @@ function getOS() {
 module.exports = getOS;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 /**
@@ -444,7 +521,7 @@ function getExplore() {
 module.exports = getExplore;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 
@@ -469,7 +546,7 @@ module.exports = closestNode;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /***
@@ -490,7 +567,7 @@ module.exports = elementFromPoint;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports) {
 
 /***
@@ -520,7 +597,7 @@ function getCaretPosition (el) {
 module.exports = getCaretPosition;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 /**
@@ -544,7 +621,7 @@ function nextNode(el, selector) {
 module.exports = nextNode;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 
@@ -571,7 +648,7 @@ function parentNode(el, selector, root) {
 module.exports = parentNode;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 /**
@@ -596,7 +673,7 @@ module.exports = prevNode;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const getScrollTop = __webpack_require__(0);
@@ -640,7 +717,7 @@ function scrollTo(to, duration) {
 module.exports = scrollTo;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 /**
@@ -665,7 +742,7 @@ function offset(ele) {
 module.exports = offset;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const css = __webpack_require__(5);
@@ -694,7 +771,7 @@ function getMaxZIndex(ele) {
 module.exports = getMaxZIndex;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const hasClass = __webpack_require__(1);
@@ -713,7 +790,7 @@ function addClass(ele, cls){
 module.exports = addClass;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const hasClass = __webpack_require__(1);
@@ -732,7 +809,7 @@ function removeClass(ele, cls) {
 module.exports = removeClass;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 /**
@@ -749,7 +826,7 @@ function toggleClass(ele, cls) {
 module.exports = toggleClass;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 /**
@@ -772,7 +849,7 @@ function getCookie(key) {
 module.exports = getCookie;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const setCookie = __webpack_require__(6);
@@ -788,7 +865,7 @@ function removeCookie(key) {
 module.exports = removeCookie;
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 const map = new Map([
@@ -915,77 +992,24 @@ module.exports = keyCode;
 
 
 /***/ }),
-/* 31 */
-/***/ (function(module, exports) {
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
 
 /***
- * @author vimmingshe@gmail.com
- * @date 30/01/2018 8:59 AM
- * @description: limit frequency of function call
- * @detail https://css-tricks.com/debouncing-throttling-explained-examples/
+ * created by @vimmingshe@gmail.com
+ * @date 27/02/2018 3:36 PM
+ * @description:
  ***/
+const throttle = __webpack_require__(7);
 
-/****
- *
- * @param delay {number} unit: ms,  interval time of two same function invoked
- * @param callback {function} callback function
- * @param debounceMode {boolean} is debounce mode
- * @param immediate {boolean} if true invoked immediate then callback can't execute during delay ms
- * @returns {function} return wrap function
- */
-
-
-/**@throttleMode **/
-// Returns a function, that, when invoked, will only be triggered at most once
-// during a given window of time.
-
-/**@debounceMode**/
-// Returns a function, that, as long as it continues to be invoked, will not
-// be triggered. The function will be called after it stops being called for
-// N milliseconds. If `immediate` is passed, trigger the function on the
-// leading edge, instead of the trailing.
-
-
-function throttle(delay, callback, debounceMode = false, immediate = false) {
-    let timeoutID, lastExec = 0;
-
-    function wrapper(...args) {
-
-        let elapsed = lastExec === 0 ? 0 : Number(new Date()) - lastExec;
-
-        let exec = () => {
-            lastExec = Number(new Date());
-            callback.apply(this, args);
-        };
-
-        if (delay < elapsed && timeoutID || (debounceMode === false && (lastExec === 0 || delay < elapsed)) ) {
-            if (timeoutID) clearTimeout(timeoutID);
-            timeoutID = undefined;
-            exec();
-        }
-        else if (debounceMode === true) {
-            if (immediate === true && (lastExec === 0 || delay < elapsed)) {
-                exec();
-            } else {
-                if (timeoutID) clearTimeout(timeoutID);
-                timeoutID = setTimeout(exec, delay);
-            }
-        }
-
-    }
-
-    return wrapper;
-
+function debounce(callback, delay) {
+    return throttle(delay, callback, true);
 }
 
-module.exports = throttle;
-
-
-
-
+module.exports = debounce;
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 /***
@@ -1035,7 +1059,7 @@ function deepClone(values) {
 module.exports = deepClone;
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports) {
 
 /***
@@ -1059,6 +1083,39 @@ function getTimeStamp({ cal = new Date(), d = 0, h = 0, m = 0 , s = 0 } = {}) {
 }
 
 module.exports = getTimeStamp;
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports) {
+
+/***
+ * created by @vimmingshe@gmail.com
+ * @date 26/02/2018 3:00 PM
+ * @description:
+ ***/
+
+function toDataUri(url, callback) {
+    var image = new Image();
+    image.crossOrigin="anonymous";
+
+    image.onload = function () {
+        var canvas = document.createElement('canvas');
+        canvas.width = this.naturalWidth; // or 'width' if you want a special/scaled size
+        canvas.height = this.naturalHeight; // or 'height' if you want a special/scaled size
+
+        canvas.getContext('2d').drawImage(this, 0, 0);
+
+        // Get raw image data
+        //callback(canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/, ''));
+
+        // ... or get as Data URI
+        callback(canvas.toDataURL('image/png'));
+    };
+
+    image.src = url;
+}
+
+module.exports = toDataUri;
 
 /***/ })
 /******/ ]);

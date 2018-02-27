@@ -36,10 +36,14 @@ const  removeCookie = require('./cookie/removeCookie');
 const keyCode = require('./keycode/keyCode');
 
 const throttle = require('./function/throttle');
+const debounce = require('./function/debounce');
+
 
 const deepClone = require('./object/deepClone');
 
 const getTimeStamp = require('./time/getTimeStamp');
+
+const toDataUri = require('./dom/toDataUri');
 module.exports = {
     // random
     s_random, n_random,
@@ -54,10 +58,11 @@ module.exports = {
     // keyCode
     keyCode,
     // function
-    throttle,
+    throttle, debounce,
     //object
     deepClone,
     // time
     getTimeStamp,
-
+    // transfer
+    toDataUri,
 };
