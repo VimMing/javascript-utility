@@ -60,13 +60,13 @@ const s_random = require('vim_utility/s_random');
 [setScrollTop](https://github.com/VimMing/javascript-utility/blob/master/setScrollTop.js)
 
 [toggleClass](https://github.com/VimMing/javascript-utility/blob/master/toggleClass.js)
-
+[toDataUri](https://github.com/VimMing/javascript-utility/blob/master/toDataUri.js)
 
 
 ### function
 
 [throttle](https://github.com/VimMing/javascript-utility/blob/master/throttle.js)
-
+[debounce](https://github.com/VimMing/javascript-utility/blob/master/debounce.js)
 
 ### keycode
 
