@@ -6,7 +6,7 @@ const hasClass = require('./hasClass');
  * @param cls{string}
  */
 function addClass(ele, cls){
-    if(!hasClass() && ele instanceof Node){
+    if(!hasClass(ele, cls) && ele instanceof Node){
         ele.classList.add(cls);
     }
 }

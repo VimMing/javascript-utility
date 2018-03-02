@@ -7,8 +7,9 @@ const isUrl = require("./isUrl");
  */
 function getUrlParam(str) {
     str = decodeURI(str);
-    let res = new Map(), reg = /\??((\w+)\=(\w+))\&?/g;
+    let res = new Map(), reg = /((\S+?)\=(\S+?))\&/g;
     if(!isUrl(str)) return res;
+    str = str.slice(str.indexOf('?') + 1) + '&';
     let match = null;
     do{
         match = reg.exec(str);

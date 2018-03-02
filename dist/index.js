@@ -333,7 +333,7 @@ module.exports = {
     deepClone,
     // time
     getTimeStamp,
-
+    // transfer
     toDataUri,
 };
 
@@ -452,8 +452,9 @@ const isUrl = __webpack_require__(2);
  */
 function getUrlParam(str) {
     str = decodeURI(str);
-    let res = new Map(), reg = /\??((\w+)\=(\w+))\&?/g;
+    let res = new Map(), reg = /((\S+?)\=(\S+?))\&/g;
     if(!isUrl(str)) return res;
+    str = str.slice(str.indexOf('?') + 1) + '&';
     let match = null;
     do{
         match = reg.exec(str);
@@ -782,7 +783,7 @@ const hasClass = __webpack_require__(1);
  * @param cls{string}
  */
 function addClass(ele, cls){
-    if(!hasClass() && ele instanceof Node){
+    if(!hasClass(ele, cls) && ele instanceof Node){
         ele.classList.add(cls);
     }
 }
@@ -1098,7 +1099,7 @@ function toDataUri(url, callback) {
     var image = new Image();
     image.crossOrigin="anonymous";
 
-    image.onload = function () {
+    image.onload =  () => {
         var canvas = document.createElement('canvas');
         canvas.width = this.naturalWidth; // or 'width' if you want a special/scaled size
         canvas.height = this.naturalHeight; // or 'height' if you want a special/scaled size

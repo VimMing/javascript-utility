@@ -41,7 +41,8 @@ new Promise((resolve, reject) => {
                 if (err) throw err;
                 if (index === folderList.length - 1) {
                     console.log(chalk.cyan('  Copy complete.\n'));
-                    copying.stop()
+                    copying.stop();
+                    replace();
                 }
             })
         })
@@ -49,4 +50,42 @@ new Promise((resolve, reject) => {
 }).catch((err) => {
     throw err
 });
+
+function replace() {
+    const readFilePromise = function (fileName, fs) {
+        return new Promise(function (resolve, reject) {
+            fs.readFile(fileName, 'utf8', function(error, data) {
+                if (error) return reject(error);
+                resolve(data);
+            });
+        });
+    };
+
+    async function readFile(files, fs, rootPath) {
+        let declare = "";
+        for(let file of files){
+            let content = await readFilePromise(`${rootPath}/${file}`, fs);
+             content = content.replace(/function /g, 'export function ');
+             content = content.replace(/module\.exports.+/g, ' ');
+              content = content.replace(/.+require\(.+\).+/g, ' ');
+             declare += content;
+        }
+        return declare;
+    }
+    fs.readdir(rootPath, (err, files) => {
+        files = files.filter(file => {
+            if(/\.js$/.test(file)){
+                return true;
+            }
+        });
+
+        let p = readFile(files, fs, rootPath);
+        p.then((data) => {
+            fs.writeFile(`${rootPath}/utility.js`, data, 'utf8', function (err) {
+                if (err) return console.log(err);
+            });
+        });
+    });
+
+}
 

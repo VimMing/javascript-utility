@@ -1,7 +1,7 @@
 {
   "name": "vim_utility",
   "version": "1.0.8",
-  "description": "helper function for javascript",
+  "description": "helper export functionfor javascript",
   "main": "dist/index.js",
   "scripts": {
     "test": "karma start script/karma.conf.js",
@@ -43,5 +43,8 @@
   "bugs": {
     "url": "https://github.com/VimMing/javascript-utility/issues"
   },
-  "homepage": "https://github.com/VimMing/javascript-utility#readme"
+  "homepage": "https://github.com/VimMing/javascript-utility#readme",
+  "dependencies": {
+    "replace": "^0.3.0"
+  }
 }
