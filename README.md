@@ -1,5 +1,6 @@
 # javascript-utility
 ![Build Status](https://travis-ci.org/VimMing/javascript-utility.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/VimMing/javascript-utility/badge.svg?branch=master)](https://coveralls.io/github/VimMing/javascript-utility?branch=master)
 
 ## Install
 
