@@ -9,45 +9,38 @@
 ## Install
 
 ```
+
 npm install --save-dev vim_utility
 
 ```
 
 ## usage
-method one
 ```
-const utility = require('vim_utility');
-utility.s_random(7); // Generates a random string of length 7
-
-```
-method two
-
-```
-import {s_random} from "vim_utility/utility"
+import {s_random} from "vim_utility"
 s_random(7);
 ```
 
 ## doc
 
-## scss
+### scss
 
 [px2rem](https://github.com/VimMing/javascript-utility/blob/master/src/scss/px2rem.js)
 > click to see code
 
-```
-# js file
+
+```javascript
 // import px2rem.js in your bootstrap js
 import {px2rem} from "vim_utility/utility"
 
-...
+
 
 // Dynamically change the html font-size when window's size changed
 px2rem();
+```
 
-...
 
-# scss file
-@import 'vim_utility/src/scss/px2rem.scss';
+```scss
+@import '~vim_utility/src/scss/px2rem.scss';
 $designWidth : 750px; /*Design draft width*/
 
 .example{
