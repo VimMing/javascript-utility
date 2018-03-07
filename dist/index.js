@@ -227,7 +227,7 @@ module.exports = setCookie;
 function throttle(delay, callback, debounceMode = false, immediate = false) {
     let timeoutID, lastExec = 0;
 
-    function wrapper(...args) {
+    let wrapper = (...args) => {
 
         let elapsed = lastExec === 0 ? 0 : Number(new Date()) - lastExec;
 
@@ -700,13 +700,14 @@ module.exports = prevNode;
 
 const getScrollTop = __webpack_require__(0);
 const setScrollTop = __webpack_require__(4);
-const requestAnimationFrame = (function () {
+const requestAnimationFrame = (() => {
+    let c = (callback) => {
+        window.setTimeout(callback, 10);
+    };
     return window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        function (callback) {
-            window.setTimeout(callback, 10);
-        };
+        window.mozRequestAnimationFrame || c;
+
 })();
 /**
  * 
@@ -723,7 +724,7 @@ function scrollTo(to, duration) {
     if (diff === 0) return;
     let step = (diff / duration)*2.718;
     requestAnimationFrame(
-        function () {
+         () => {
             if (Math.abs(step) > Math.abs(diff)) {
                 setScrollTop(getScrollTop() + diff);
                 return;

@@ -1,12 +1,13 @@
 const getScrollTop = require('./getScrollTop');
 const setScrollTop = require('./setScrollTop');
-const requestAnimationFrame = (function () {
+const requestAnimationFrame = (() => {
+    let c = (callback) => {
+        window.setTimeout(callback, 10);
+    };
     return window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        function (callback) {
-            window.setTimeout(callback, 10);
-        };
+        window.mozRequestAnimationFrame || c;
+
 })();
 /**
  * 
@@ -23,7 +24,7 @@ function scrollTo(to, duration) {
     if (diff === 0) return;
     let step = (diff / duration)*2.718;
     requestAnimationFrame(
-        function () {
+         () => {
             if (Math.abs(step) > Math.abs(diff)) {
                 setScrollTop(getScrollTop() + diff);
                 return;

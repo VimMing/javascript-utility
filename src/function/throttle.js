@@ -29,7 +29,7 @@
 function throttle(delay, callback, debounceMode = false, immediate = false) {
     let timeoutID, lastExec = 0;
 
-    function wrapper(...args) {
+    let wrapper = (...args) => {
 
         let elapsed = lastExec === 0 ? 0 : Number(new Date()) - lastExec;
 

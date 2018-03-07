@@ -637,13 +637,14 @@ export function s_random(n = 6) {
 
   
  
-const requestAnimationFrame = (export function () {
+const requestAnimationFrame = (() => {
+    let c = (callback) => {
+        window.setTimeout(callback, 10);
+    };
     return window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        export function (callback) {
-            window.setTimeout(callback, 10);
-        };
+        window.mozRequestAnimationFrame || c;
+
 })();
 /**
  * 
@@ -660,7 +661,7 @@ export function scrollTo(to, duration) {
     if (diff === 0) return;
     let step = (diff / duration)*2.718;
     requestAnimationFrame(
-        export function () {
+         () => {
             if (Math.abs(step) > Math.abs(diff)) {
                 setScrollTop(getScrollTop() + diff);
                 return;
@@ -726,7 +727,7 @@ export function setScrollTop(value) {
 export function throttle(delay, callback, debounceMode = false, immediate = false) {
     let timeoutID, lastExec = 0;
 
-    export function wrapper(...args) {
+    let wrapper = (...args) => {
 
         let elapsed = lastExec === 0 ? 0 : Number(new Date()) - lastExec;
 
