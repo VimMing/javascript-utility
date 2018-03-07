@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -268,45 +268,62 @@ module.exports = throttle;
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const s_random = __webpack_require__(9);
-const n_random = __webpack_require__(10);
+/***
+ * created by @vimmingshe@gmail.com
+ * @date 27/02/2018 3:36 PM
+ * @description:
+ ***/
+const throttle = __webpack_require__(7);
 
-const isChinaIDCard = __webpack_require__(11);
-const isEmail =  __webpack_require__(12);
-const isPhone = __webpack_require__(13);
+function debounce(callback, delay) {
+    return throttle(delay, callback, true);
+}
+
+module.exports = debounce;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const s_random = __webpack_require__(10);
+const n_random = __webpack_require__(11);
+
+const isChinaIDCard = __webpack_require__(12);
+const isEmail =  __webpack_require__(13);
+const isPhone = __webpack_require__(14);
 const isUrl = __webpack_require__(2);
-const getUrlParam = __webpack_require__(14);
-const getOS = __webpack_require__(15);
-const getExplore = __webpack_require__(16);
+const getUrlParam = __webpack_require__(15);
+const getOS = __webpack_require__(16);
+const getExplore = __webpack_require__(17);
 
-const closestNode  = __webpack_require__(17);
-const  elementFromPoint = __webpack_require__(18);
-const  getCaretPosition = __webpack_require__(19);
+const closestNode  = __webpack_require__(18);
+const  elementFromPoint = __webpack_require__(19);
+const  getCaretPosition = __webpack_require__(20);
 const  getScrollLeft = __webpack_require__(3);
 const  getScrollTop = __webpack_require__(0);
-const  nextNode = __webpack_require__(20);
-const  parentNode = __webpack_require__(21);
-const  prevNode = __webpack_require__(22);
-const  scrollTo = __webpack_require__(23);
+const  nextNode = __webpack_require__(21);
+const  parentNode = __webpack_require__(22);
+const  prevNode = __webpack_require__(23);
+const  scrollTo = __webpack_require__(24);
 const  setScrollTop = __webpack_require__(4);
-const  offset = __webpack_require__(24);
+const  offset = __webpack_require__(25);
 const  css = __webpack_require__(5);
-const getMaxZIndex = __webpack_require__(25);
+const getMaxZIndex = __webpack_require__(26);
 
 const hasClass= __webpack_require__(1);
-const addClass= __webpack_require__(26);
-const removeClass= __webpack_require__(27);
-const toggleClass= __webpack_require__(28);
+const addClass= __webpack_require__(27);
+const removeClass= __webpack_require__(28);
+const toggleClass= __webpack_require__(29);
 
 
-const  getCookie = __webpack_require__(29);
+const  getCookie = __webpack_require__(30);
 const  setCookie = __webpack_require__(6);
-const  removeCookie = __webpack_require__(30);
+const  removeCookie = __webpack_require__(31);
 
-const keyCode = __webpack_require__(31);
+const keyCode = __webpack_require__(32);
 
 const throttle = __webpack_require__(7);
-const debounce = __webpack_require__(32);
+const debounce = __webpack_require__(8);
 
 
 const deepClone = __webpack_require__(33);
@@ -314,6 +331,8 @@ const deepClone = __webpack_require__(33);
 const getTimeStamp = __webpack_require__(34);
 
 const toDataUri = __webpack_require__(35);
+
+const px2rem = __webpack_require__(36);
 module.exports = {
     // random
     s_random, n_random,
@@ -335,10 +354,12 @@ module.exports = {
     getTimeStamp,
     // transfer
     toDataUri,
+    //scss
+    px2rem,
 };
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 /******
@@ -357,7 +378,7 @@ function s_random(n = 6) {
 module.exports = s_random;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 /**
@@ -383,7 +404,7 @@ function n_random(min, max, n = 1) {
 module.exports = n_random;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 /***
@@ -410,7 +431,7 @@ function isChinaIDCard(str) {
 module.exports = isChinaIDCard;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 /****
@@ -425,7 +446,7 @@ function isEmail(str) {
 module.exports = isEmail;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 /*****
@@ -440,7 +461,7 @@ function isPhone(str) {
 module.exports = isPhone;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const isUrl = __webpack_require__(2);
@@ -467,7 +488,7 @@ function getUrlParam(str) {
 module.exports = getUrlParam;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 /**
@@ -490,7 +511,7 @@ function getOS() {
 module.exports = getOS;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 /**
@@ -522,7 +543,7 @@ function getExplore() {
 module.exports = getExplore;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 
@@ -547,7 +568,7 @@ module.exports = closestNode;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /***
@@ -568,7 +589,7 @@ module.exports = elementFromPoint;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 /***
@@ -598,7 +619,7 @@ function getCaretPosition (el) {
 module.exports = getCaretPosition;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 /**
@@ -622,7 +643,7 @@ function nextNode(el, selector) {
 module.exports = nextNode;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 
@@ -649,7 +670,7 @@ function parentNode(el, selector, root) {
 module.exports = parentNode;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 /**
@@ -674,7 +695,7 @@ module.exports = prevNode;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const getScrollTop = __webpack_require__(0);
@@ -718,7 +739,7 @@ function scrollTo(to, duration) {
 module.exports = scrollTo;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 /**
@@ -743,7 +764,7 @@ function offset(ele) {
 module.exports = offset;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const css = __webpack_require__(5);
@@ -772,7 +793,7 @@ function getMaxZIndex(ele) {
 module.exports = getMaxZIndex;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const hasClass = __webpack_require__(1);
@@ -791,7 +812,7 @@ function addClass(ele, cls){
 module.exports = addClass;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const hasClass = __webpack_require__(1);
@@ -810,7 +831,7 @@ function removeClass(ele, cls) {
 module.exports = removeClass;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 /**
@@ -827,7 +848,7 @@ function toggleClass(ele, cls) {
 module.exports = toggleClass;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports) {
 
 /**
@@ -850,7 +871,7 @@ function getCookie(key) {
 module.exports = getCookie;
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const setCookie = __webpack_require__(6);
@@ -866,7 +887,7 @@ function removeCookie(key) {
 module.exports = removeCookie;
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports) {
 
 const map = new Map([
@@ -993,23 +1014,6 @@ module.exports = keyCode;
 
 
 /***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/***
- * created by @vimmingshe@gmail.com
- * @date 27/02/2018 3:36 PM
- * @description:
- ***/
-const throttle = __webpack_require__(7);
-
-function debounce(callback, delay) {
-    return throttle(delay, callback, true);
-}
-
-module.exports = debounce;
-
-/***/ }),
 /* 33 */
 /***/ (function(module, exports) {
 
@@ -1117,6 +1121,51 @@ function toDataUri(url, callback) {
 }
 
 module.exports = toDataUri;
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/***
+ * created by @vimmingshe@gmail.com
+ * @date 07/03/2018 10:39 AM
+ * @description:
+ ***/
+const debounce = __webpack_require__(8);
+
+function px2rem(ratio = 20, ms = 500) {
+    let setRootFontSize = () => {
+        let clientWidth = (document.documentElement.clientWidth || document.body.clientWidth) / ratio;
+        document.documentElement.style.fontSize = `${clientWidth}px`;
+    };
+    let setBodyAttribute = () => {
+        let dpr = window.devicePixelRatio || 1;
+        document.documentElement.setAttribute('data-dpr', dpr);
+        let viewportEl = document.querySelector('meta[name="viewport"]');
+        if(viewportEl === null || viewportEl === undefined){
+            let content =  "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no";
+            viewportEl = document.createElement('meta');
+            viewportEl.setAttribute('name', 'viewport');
+            viewportEl.setAttribute('content', content);
+            document.head.appendChild(viewportEl);
+        }
+    };
+    let wrap = debounce(setRootFontSize, ms);
+
+    window.addEventListener('resize', (e) => {
+        wrap(e);
+    });
+
+    window.addEventListener('load', (e) => {
+       setBodyAttribute();
+       setRootFontSize();
+    });
+
+    setBodyAttribute();
+    setRootFontSize();
+}
+
+module.exports = px2rem;
 
 /***/ })
 /******/ ]);

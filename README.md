@@ -8,12 +8,18 @@ npm install --save-dev vim_utility
 
 ```
 
-## import function
+## usage
+method one
+```
+const utility = require('vim_utility');
+utility.s_random(7); // Generates a random string of length 7
 
 ```
+method two
 
-const s_random = require('vim_utility/s_random');
-
+```
+import {s_random} from "vim_utility/utility"
+s_random(7);
 ```
 
 ## doc
@@ -60,12 +66,14 @@ const s_random = require('vim_utility/s_random');
 [setScrollTop](https://github.com/VimMing/javascript-utility/blob/master/setScrollTop.js)
 
 [toggleClass](https://github.com/VimMing/javascript-utility/blob/master/toggleClass.js)
+
 [toDataUri](https://github.com/VimMing/javascript-utility/blob/master/toDataUri.js)
 
 
 ### function
 
 [throttle](https://github.com/VimMing/javascript-utility/blob/master/throttle.js)
+
 [debounce](https://github.com/VimMing/javascript-utility/blob/master/debounce.js)
 
 ### keycode

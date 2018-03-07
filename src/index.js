@@ -44,6 +44,8 @@ const deepClone = require('./object/deepClone');
 const getTimeStamp = require('./time/getTimeStamp');
 
 const toDataUri = require('./dom/toDataUri');
+
+const px2rem = require('./scss/px2rem');
 module.exports = {
     // random
     s_random, n_random,
@@ -65,4 +67,6 @@ module.exports = {
     getTimeStamp,
     // transfer
     toDataUri,
+    //scss
+    px2rem,
 };

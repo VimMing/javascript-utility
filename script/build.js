@@ -81,8 +81,10 @@ function replace() {
 
         let p = readFile(files, fs, rootPath);
         p.then((data) => {
-            fs.writeFile(`${rootPath}/utility.js`, data, 'utf8', function (err) {
-                if (err) return console.log(err);
+            rm('*.js', err => {
+                fs.writeFile(`${rootPath}/utility.js`, data, 'utf8', function (err) {
+                    if (err) return console.log(err);
+                });
             });
         });
     });

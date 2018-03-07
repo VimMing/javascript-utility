@@ -1,0 +1,6 @@
+$designWidth: 375px;
+$ratio: 20;
+@function px2rem($px){
+  $unit: $designWidth/$ratio;
+  @return $px/$unit + rem;
+}
