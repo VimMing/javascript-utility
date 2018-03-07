@@ -1,7 +1,7 @@
 # javascript-utility
 ![Build Status](https://travis-ci.org/VimMing/javascript-utility.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/VimMing/javascript-utility/badge.svg?branch=master)](https://coveralls.io/github/VimMing/javascript-utility?branch=master)
-![npm](https://img.shields.io/npm/dw/localeval.svg)
+![![npm](https://www.npmjs.com/package/vim_utility)](https://img.shields.io/npm/dw/localeval.svg)
 
 
 ## Install
@@ -26,6 +26,41 @@ s_random(7);
 ```
 
 ## doc
+
+## scss
+
+[px2rem](https://github.com/VimMing/javascript-utility/blob/master/src/scss/px2rem.js)
+> click to see code
+
+```
+# js file
+// import px2rem.js in your bootstrap js
+import {px2rem} from "vim_utility/utility"
+
+...
+
+// Dynamically change the html font-size when window's size changed
+px2rem();
+
+...
+
+# scss file
+@import 'vim_utility/src/scss/px2rem.scss';
+$designWidth : 750px; /*Design draft width*/
+
+.example{
+  height: px2rem(200px);
+  border: solid 1px black;
+  	font-size: 12px ;
+  	[data-dpr="2"] &{
+  		font-size: 24px;
+  	}
+  	[data-dpr="3"] &{
+  		font-size: 36px;
+  	}
+}
+ 
+```
 
 ### cookie
 [getCookie](https://github.com/VimMing/javascript-utility/blob/master/getCookie.js)
