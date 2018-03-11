@@ -58,74 +58,197 @@ $designWidth : 750px; /*Design draft width*/
 ```
 
 ### cookie
-[getCookie](https://github.com/VimMing/javascript-utility/blob/master/getCookie.js)
+[getCookie](https://github.com/VimMing/javascript-utility/blob/master/src/cookie/getCookie.js)
 
-[removeCookie](https://github.com/VimMing/javascript-utility/blob/master/removeCookie.js)
+```javascript
+// assuming there is (yourKey => yourValue) in the cookie
+getCookie(yourKey); // return yourValue
+```
 
-[setCookie](https://github.com/VimMing/javascript-utility/blob/master/Cookieset.js)
+[removeCookie](https://github.com/VimMing/javascript-utility/blob/master/src/cookie/removeCookie.js)
+
+```javascript
+removeCookie(yourKey);
+```
+
+[setCookie](https://github.com/VimMing/javascript-utility/blob/master/src/cookie/setCookie.js)
+
+```javascript
+setCookie(key, value, days);
+```
 
 ### dom
 
-[addClass](https://github.com/VimMing/javascript-utility/blob/master/addClass.js)
+[addClass](https://github.com/VimMing/javascript-utility/blob/master/src/dom/addClass.js)
 
-[closestNode](https://github.com/VimMing/javascript-utility/blob/master/closestNode.js)
+```javascript
+addClass(ele, cls); /*ele instance of Node, cls is string*/
+```
 
-[css](https://github.com/VimMing/javascript-utility/blob/master/css.js)
+[closestNode](https://github.com/VimMing/javascript-utility/blob/master/src/dom/closestNode.js)
 
-[elementFromPoint](https://github.com/VimMing/javascript-utility/blob/master/elementFromPoint.js)
+```javascript
+closestNode(el, selector); /*Similar to the jquery closestNode method*/
+```
 
-[getCaretPosition](https://github.com/VimMing/javascript-utility/blob/master/getCaretPosition.js)
 
-[getMaxZIndex](https://github.com/VimMing/javascript-utility/blob/master/getMaxZIndex.js)
+[css](https://github.com/VimMing/javascript-utility/blob/master/src/dom/css.js)
 
-[getScrollLeft](https://github.com/VimMing/javascript-utility/blob/master/getScrollLeft.js)
 
-[getScrollTop](https://github.com/VimMing/javascript-utility/blob/master/getScrollTop.js)
+```javascript
+css(ele, prop); /*get css attribute value*/
+```
 
-[hasClass](https://github.com/VimMing/javascript-utility/blob/master/hasClass.js)
+[elementFromPoint](https://github.com/VimMing/javascript-utility/blob/master/src/dom/elementFromPoint.js)
 
-[nextNode](https://github.com/VimMing/javascript-utility/blob/master/nextNode.js)
+```javascript
+elementFromPoint(e); // e is mouse event
+// return Node
 
-[offset](https://github.com/VimMing/javascript-utility/blob/master/offset.js)
+```
 
-[parentNode](https://github.com/VimMing/javascript-utility/blob/master/parentNode.js)
+[getCaretPosition](https://github.com/VimMing/javascript-utility/blob/master/src/dom/getCaretPosition.js)
 
-[prevNode](https://github.com/VimMing/javascript-utility/blob/master/prevNode.js)
+```javascript
+getCaretPosition (el); // return number;
 
-[removeClass](https://github.com/VimMing/javascript-utility/blob/master/removeClass.js)
+```
 
-[scrollTo](https://github.com/VimMing/javascript-utility/blob/master/scrollTo.js)
+[getMaxZIndex](https://github.com/VimMing/javascript-utility/blob/master/src/dom/getMaxZIndex.js)
 
-[setScrollTop](https://github.com/VimMing/javascript-utility/blob/master/setScrollTop.js)
+```javascript
+getMaxZIndex(ele = undefined); // if ele === undefined , return max z-index value in the document
+```
 
-[toggleClass](https://github.com/VimMing/javascript-utility/blob/master/toggleClass.js)
+[getScrollLeft](https://github.com/VimMing/javascript-utility/blob/master/src/dom/getScrollLeft.js)
 
-[toDataUri](https://github.com/VimMing/javascript-utility/blob/master/toDataUri.js)
+```javascript
+getScrollLeft();
+
+```
+
+[getScrollTop](https://github.com/VimMing/javascript-utility/blob/master/src/dom/getScrollTop.js)
+
+```javascript
+getScrollTop();
+```
+
+[hasClass](https://github.com/VimMing/javascript-utility/blob/master/src/dom/hasClass.js)
+
+```javascript
+hasClass(ele, cls);
+```
+
+[nextNode](https://github.com/VimMing/javascript-utility/blob/master/src/dom/nextNode.js)
+
+```javascript
+nextNode(el, selector);
+```
+
+[offset](https://github.com/VimMing/javascript-utility/blob/master/src/dom/offset.js)
+
+```javascript
+offset(ele); // get distance away from window
+/* @return
+* {
+    left: x,  
+     top: y
+   }
+* */
+```
+
+[parentNode](https://github.com/VimMing/javascript-utility/blob/master/src/dom/parentNode.js)
+
+```javascript
+parentNode(el, selector, root=undefined);
+```
+
+[prevNode](https://github.com/VimMing/javascript-utility/blob/master/src/dom/prevNode.js)
+
+```javascript
+prevNode(el, selector);
+```
+
+[removeClass](https://github.com/VimMing/javascript-utility/blob/master/src/dom/removeClass.js)
+
+```javascript
+removeClass(ele, cls);
+```
+
+[scrollTo](https://github.com/VimMing/javascript-utility/blob/master/src/dom/scrollTo.js)
+
+```javascript
+scrollTo(to, duration); //  scroll to given place during given time
+```
+
+[setScrollTop](https://github.com/VimMing/javascript-utility/blob/master/src/dom/setScrollTop.js)
+
+```javascript
+setScrollTop(value); // it exec window.scrollTo();
+```
+
+[toggleClass](https://github.com/VimMing/javascript-utility/blob/master/src/dom/toggleClass.js)
+
+```javascript
+toggleClass(ele, cls);
+```
+
+[toDataUri](https://github.com/VimMing/javascript-utility/blob/master/src/dom/toDataUri.js)
+
+```javascript
+toDataUri(url, (d) => {console.log(d);}); // transfer image png/jpg to base64
+```
 
 
 ### function
 
-[throttle](https://github.com/VimMing/javascript-utility/blob/master/throttle.js)
+[throttle](https://github.com/VimMing/javascript-utility/blob/master/src/function/throttle.js)
 
-[debounce](https://github.com/VimMing/javascript-utility/blob/master/debounce.js)
+```javascript
+throttle(delay, callback, debounceMode = false, immediate = false);
+
+```
+
+[debounce](https://github.com/VimMing/javascript-utility/blob/master/src/function/debounce.js)
+
+```javascript
+let wrap = debounce(/*callback*/ (e) => {console.log(e);}, /*delay*/ 500); // return wrapper function;
+window.addEventListener('resize', (e) => {wrap(e)});
+```
 
 ### keycode
 
-[keyCode](https://github.com/VimMing/javascript-utility/blob/master/keyCode.js)
+[keyCode](https://github.com/VimMing/javascript-utility/blob/master/keycode/keyCode.js)
+
+```javascript
+keyCode(name); // return keyCode Number;
+```
 
 
 
 ### object
 
-[deepClone](https://github.com/VimMing/javascript-utility/blob/master/deepClone.js)
+[deepClone](https://github.com/VimMing/javascript-utility/blob/master/object/deepClone.js)
+
+```javascript
+deepClone(obj); // return any;
+```
 
 
 
 ### random
 
-[n_random](https://github.com/VimMing/javascript-utility/blob/master/n_random.js)
+[n_random](https://github.com/VimMing/javascript-utility/blob/master/random/n_random.js)
+
+```javascript
+n_random(min, max, n = 1);
+```
 
 [s_random](https://github.com/VimMing/javascript-utility/blob/master/s_random.js)
+
+```javascript
+s_random(7); // return string it's length is 7
+```
 
 
 
@@ -141,19 +264,47 @@ $designWidth : 750px; /*Design draft width*/
 
 
 
-[getExplore](https://github.com/VimMing/javascript-utility/blob/master/getExplore.js)
+[getExplore](https://github.com/VimMing/javascript-utility/blob/master/src/regexp/getExplore.js)
 
-[getOS](https://github.com/VimMing/javascript-utility/blob/master/getOS.js)
+```javascript
+getExplore(); // get explore type and version
+```
 
-[getUrlParam](https://github.com/VimMing/javascript-utility/blob/master/getUrlParam.js)
+[getOS](https://github.com/VimMing/javascript-utility/blob/master/src/regexp/getOS.js)
 
-[isChinaIDCard](https://github.com/VimMing/javascript-utility/blob/master/isChinaIDCard.js)
+```javascript
+getOS();
+```
 
-[isEmail](https://github.com/VimMing/javascript-utility/blob/master/isEmail.js)
+[getUrlParam](https://github.com/VimMing/javascript-utility/blob/master/src/regexp/getUrlParam.js)
 
-[isPhone](https://github.com/VimMing/javascript-utility/blob/master/isPhone.js)
+```javascript
+getUrlParam(url); // return Map;
+```
 
-[isUrl](https://github.com/VimMing/javascript-utility/blob/master/isUrl.js)
+[isChinaIDCard](https://github.com/VimMing/javascript-utility/blob/master/src/regexp/isChinaIDCard.js)
+
+```javascript
+isChinaIDCard(str); // return boolean
+```
+
+[isEmail](https://github.com/VimMing/javascript-utility/blob/master/src/regexp/isEmail.js)
+
+```javascript
+isEmail(str); // return boolean
+```
+
+[isPhone](https://github.com/VimMing/javascript-utility/blob/master/src/regexp/isPhone.js)
+
+```javascript
+isPhone(str); // return boolean, validator chinese phone number
+```
+
+[isUrl](https://github.com/VimMing/javascript-utility/blob/master/src/regexp/isUrl.js)
+
+```javascript
+isUrl(url); // return boolean
+```
 
 
 
@@ -164,7 +315,11 @@ $designWidth : 750px; /*Design draft width*/
 
 ### time
 
-[getTimeStamp](https://github.com/VimMing/javascript-utility/blob/master/getTimeStamp.js)
+[getTimeStamp](https://github.com/VimMing/javascript-utility/blob/master/src/time/getTimeStamp.js)
+
+```javascript
+getTimeStamp({ cal = new Date(), d = 0, h = 0, m = 0 , s = 0 } = {}); // return number(seconds)
+```
 
 
 
