@@ -5,10 +5,13 @@
  ***/
 const debounce = require('../function/debounce');
 
-function px2rem(ratio = 20, ms = 500) {
+function px2rem(ratio = 20, ms = 500, maxWidth = 750) {
     let setRootFontSize = () => {
-        let clientWidth = (document.documentElement.clientWidth || document.body.clientWidth) / ratio;
-        document.documentElement.style.fontSize = `${clientWidth}px`;
+        let clientWidth = (document.documentElement.clientWidth || document.body.clientWidth);
+        if(clientWidth < maxWidth)
+            document.documentElement.style.fontSize = `${clientWidth / ratio}px`;
+        else
+            document.documentElement.style.fontSize = `${maxWidth / ratio}px`;
     };
     let setBodyAttribute = () => {
         let dpr = window.devicePixelRatio || 1;
